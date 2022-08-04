@@ -1,3 +1,5 @@
+// 중복제거 
+// https://www.kirupa.com/javascript/removing_duplicate_arrays_from_array.htm
 function solution(id_list, rawReport, k) {
     console.log([...new Set(rawReport)]); // 인자로 들어온 배열 중복제거
 
