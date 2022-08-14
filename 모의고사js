@@ -1,0 +1,52 @@
+// https://school.programmers.co.kr/learn/courses/30/lessons/42840
+
+function solution(answers) {
+  const one = [1, 2, 3, 4, 5]; // 0~4 5개
+  const two = [2, 1, 2, 3, 2, 4, 2, 5]; // 0~7 8개
+  const three = [3, 3, 1, 1, 2, 2, 4, 4, 5, 5]; // 0~9 10개
+  let oneCount = 0;
+  let twoCount = 0;
+  let threeCount = 0;
+  let oneAns;
+  let twoAns;
+  let threeAns;
+
+  for (let i = 0; i < answers.length; i++) {
+    const answer = answers[i];
+
+    if (i > one.length - 1) {
+      oneAns = one[i % 5];
+    } else {
+      oneAns = one[i];
+    }
+    if (i > two.length - 1) {
+      twoAns = two[i % 8];
+    } else {
+      twoAns = two[i];
+    }
+    if (i > three.length - 1) {
+      threeAns = three[i % 10];
+    } else {
+      threeAns = three[i];
+    }
+
+    if (oneAns === answer) {
+      oneCount++;
+    }
+    if (twoAns === answer) {
+      twoCount++;
+    }
+    if (threeAns === answer) {
+      threeCount++;
+    }
+  }
+  const arr = [oneCount, twoCount, threeCount];
+  const maxValue = Math.max(...arr);
+  const maxIndex = arr
+    .map((e, i) => {
+      if (e === maxValue) return i + 1;
+    })
+    .filter((e) => e !== undefined)
+    .sort((a, b) => a - b);
+  return maxIndex;
+}
