@@ -1,0 +1,48 @@
+정렬을 사용하지 않고 if문만 사용해서 푸는 문제이다.
+
+주석처리된것은 내 코드인데, 정렬을 사용하지 말라는 말에 집중해서 배열로 풀었다.
+원하는 정답만 얻으면 되는데 너무 복잡하게 생각한듯.
+
+```js
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(a, b, c){
+                let answer;
+                if (a<b) answer = a;
+                else ansewr =b;
+                if (c < answer) answer=c;
+                return answer;
+
+                // const result = [];
+                // if (a < b) {
+                //     result.push(a);
+                //     result.push(b);
+                // } else if (b < a) {
+                //     result.push(b);
+                //     result.push(a);
+                // }
+
+                // if (c < result[0]) {
+                //     result.unshift(c);
+                // } else if (result[1] < c) {
+                //     result.shift(c);
+                // } else {
+                //     const temp = result.pop();
+                //     result.push(c);
+                //     result.push(temp);
+                // }
+                // console.log(result);
+                // return result[0]
+                
+            }
+
+            console.log(solution(2, 5, 1));
+        </script>
+    </body>
+</html>
+```
