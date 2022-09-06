@@ -1,0 +1,36 @@
+등수 구하기 문제이다.
+강의에서는 1을 원소로 하는 배열을 미리 만들고 for문을 돌리면서 계속 배열을 참조하는 방식을 사용했다.
+나는 배열을 계속 참조하기보다는 변수를 참조하고 마지막에 push 하는방법으로 했다. 이게 전 문제들 푸는 방식이기도 하고 배열을 계속 참조하는것이 맘에들지않았다.
+
+```js
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(arr){  
+                let answer = [];
+                // let answer = Array.from({length: arr.length}, () => 1);
+                for (let i = 0; i<arr.length; i++) {
+                    let cnt = 1;
+                    for (let j = 0; j<arr.length; j++) {
+                        if (arr[i] < arr[j]) {
+                            cnt += 1;
+                        }
+                    }
+                    answer.push(cnt);
+                }
+
+
+
+                return answer;
+            }
+
+            let arr=[87, 89, 92, 100, 76];
+            console.log(solution(arr));
+        </script>
+    </body>
+</html>
+```
