@@ -1,0 +1,52 @@
+강의들으면서 처음으로 못푼문제이다.
+
+못푼이유는 다음과 같다.
+1. 4중 for문을 사용하는것이 맞는가 의심이됨
+2. mentor와 mentee 변수에 index인 m을 넣어야하는데 사람번호인 i와j를 넣음 (좋게말하면 실수)
+
+```html
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(arr){
+                let answer=0;
+                const peopleNum = arr[0].length;
+                const testNum = arr.length;
+                let count = 0;
+                for (let i = 1; i<=peopleNum; i++) {
+                    for (let j = 1; j<=peopleNum; j++) {
+                        count = 0;
+                        for (let k = 0; k<testNum; k++) {
+                            let mentor = 0;
+                            let mentee = 0;
+                            for (let m = 0; m<peopleNum; m++) {
+                                if (arr[k][m] === i) {
+                                    mentor = m;
+                                }
+                                else if (arr[k][m] === j) {
+                                    mentee = m;
+                                }
+                            }
+                            if (mentor < mentee) {
+                                count++;
+                            }
+                        }
+                        if (count === testNum) {
+                            answer++;
+                            console.log(i, j);
+                        }
+                    }
+                }
+                return answer;
+            }
+            
+            let arr=[[3, 4, 1, 2], [4, 3, 2, 1], [3, 1, 4, 2]];
+            console.log(solution(arr));
+        </script>
+    </body>
+</html>
+```
